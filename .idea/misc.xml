@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/androidProjects/TimeLine/app/src/main/res/drawable/circle.xml" value="0.36302083333333335" />
+        <entry key="..\:/androidProjects/TimeLine/app/src/main/res/drawable/circle_black.xml" value="0.2869791666666667" />
+        <entry key="..\:/androidProjects/TimeLine/app/src/main/res/drawable/circle_red.xml" value="0.26197916666666665" />
+        <entry key="..\:/androidProjects/TimeLine/app/src/main/res/drawable/line.xml" value="0.36302083333333335" />
+        <entry key="..\:/androidProjects/TimeLine/app/src/main/res/drawable/rectangule.xml" value="0.3828125" />
+        <entry key="..\:/androidProjects/TimeLine/app/src/main/res/layout/activity_calendar.xml" value="0.36666666666666664" />
+        <entry key="..\:/androidProjects/TimeLine/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/androidProjects/TimeLine/app/src/main/res/layout/activity_new_appointment.xml" value="0.33" />
+        <entry key="..\:/androidProjects/TimeLine/app/src/main/res/layout/contorno.xml" value="0.35260416666666666" />
+        <entry key="..\:/androidProjects/TimeLine/app/src/main/res/layout/contorno2.xml" value="0.35260416666666666" />
+        <entry key="..\:/androidProjects/TimeLine/app/src/main/res/layout/layout_iten_timeline.xml" value="0.3328125" />
+        <entry key="..\:/androidProjects/TimeLine/app/src/main/res/layout/layout_modal_new_appointment.xml" value="0.2682291666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
