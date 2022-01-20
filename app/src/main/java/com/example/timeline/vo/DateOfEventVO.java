@@ -109,6 +109,34 @@ public class DateOfEventVO implements Serializable {
     }
 
      public String getDate() {
+        switch (month){
+            case 0:
+                return day + " Jan " + year;
+            case 1:
+                return day + " fev " + year;
+            case 2:
+                return day + " Mar " + year;
+            case 3:
+                return day + " Abr " + year;
+            case 4:
+                return day + " Mai " + year;
+            case 5:
+                return day + " Jun " + year;
+            case 6:
+                return day + " Jul " + year;
+            case 7:
+                return day + " Ago " + year;
+            case 8:
+                return day + " Set " + year;
+            case 9:
+                return day + " Out " + year;
+            case 10:
+                return day + " Nov " + year;
+            case 11:
+                return day + " Dez " + year;
+
+        }
+
         return day + "/" + month + "/" + year;
     }
 
