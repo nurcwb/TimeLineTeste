@@ -2,21 +2,21 @@ package com.example.timeline.vo;
 
 import com.example.timeline.util.IMAGE_TYPE;
 
-public class NewAppointment {
-    private DateOfEvent dateOfEvent;
+public class NewAppointmentVO {
+    private DateOfEventVO dateOfEventVO;
     private String clientName;
     private String details;
     private IMAGE_TYPE image;
 
-    public NewAppointment(DateOfEvent dateOfEvent, String clientName, String details, IMAGE_TYPE image) {
-        this.dateOfEvent = dateOfEvent;
+    public NewAppointmentVO(DateOfEventVO dateOfEventVO, String clientName, String details, IMAGE_TYPE image) {
+        this.dateOfEventVO = dateOfEventVO;
         this.clientName = clientName;
         this.details = details;
         this.image = image;
     }
 
-    public DateOfEvent getDateOfEvent() {
-        return dateOfEvent;
+    public DateOfEventVO getDateOfEvent() {
+        return dateOfEventVO;
     }
 
     public String getClientName() {

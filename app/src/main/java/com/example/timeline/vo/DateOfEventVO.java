@@ -3,7 +3,7 @@ package com.example.timeline.vo;
 import java.io.Serializable;
 import java.util.Calendar;
 
-public class DateOfEvent implements Serializable {
+public class DateOfEventVO implements Serializable {
     private int day;
     private int month;
     private int year;
@@ -12,12 +12,13 @@ public class DateOfEvent implements Serializable {
     private String dayOfWeek;
     private int week;
 
-    public DateOfEvent() {
+    public DateOfEventVO() {
         Calendar calendar = Calendar.getInstance();
-        new DateOfEvent(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONDAY), calendar.get(Calendar.DAY_OF_MONTH));
+        new DateOfEventVO(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONDAY), calendar.get(Calendar.DAY_OF_MONTH));
+        setTimeOfAppointment("12:00");
     }
 
-    public DateOfEvent(int year, int month, int day) {
+    public DateOfEventVO(int year, int month, int day) {
         this.day = day;
         this.month = month;
         this.year = year;

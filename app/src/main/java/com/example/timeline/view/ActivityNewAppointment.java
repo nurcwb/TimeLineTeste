@@ -2,6 +2,8 @@ package com.example.timeline.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -14,16 +16,19 @@ import com.example.timeline.databinding.ActivityNewAppointmentBinding;
 import com.example.timeline.util.Constans;
 import com.example.timeline.util.IMAGE_TYPE;
 import com.example.timeline.viewmodel.ActivityNewAppointmentViewModel;
-import com.example.timeline.vo.DateOfEvent;
-import com.example.timeline.vo.NewAppointment;
+import com.example.timeline.vo.DateOfEventVO;
+import com.example.timeline.vo.NewAppointmentVO;
 
 public class ActivityNewAppointment extends BaseActivity {
 
     private ActivityNewAppointmentBinding binding;
-    private DateOfEvent dateOfEvent;
+    private DateOfEventVO dateOfEventVO;
     private IMAGE_TYPE image_type = IMAGE_TYPE.EMAIL;
 
     private ActivityNewAppointmentViewModel viewModel;
+    private boolean bDate;
+    private boolean bClientName;
+    private boolean bDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,23 +57,63 @@ public class ActivityNewAppointment extends BaseActivity {
                 result -> {
                     if (result.getResultCode() == RESULT_OK) {
                         if (result.getData().hasExtra(Constans.CALENDAR_TIME_APPOINTMENT)) {
-                            dateOfEvent = (DateOfEvent) result.getData().getSerializableExtra(Constans.CALENDAR_TIME_APPOINTMENT);
-                            binding.tvDaySelected.setText(dateOfEvent.getDate());
-                            binding.tvTimeSelected.setText(dateOfEvent.getTimeOfAppointmentAsHour());
+                            dateOfEventVO = (DateOfEventVO) result.getData().getSerializableExtra(Constans.CALENDAR_TIME_APPOINTMENT);
+                            binding.tvDaySelected.setText(dateOfEventVO.getDate());
+                            binding.tvTimeSelected.setText(dateOfEventVO.getTimeOfAppointmentAsHour());
+                            bDate = true;
+                            enableNewAppointmentButon();
                         }
                     }
                 });
+
+        binding.etClient.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                bClientName = true;
+                enableNewAppointmentButon();
+            }
+        });
+
+        binding.etDescription.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                bDescription = true;
+                enableNewAppointmentButon();
+            }
+        });
+
+
 
         binding.btnCancel.setOnClickListener(v -> finish());
         binding.clCalendarTimer.setOnClickListener(v ->
                 resultLauncher.launch(new Intent(this, CalendarActivity.class)));
         binding.btnNew.setOnClickListener(v -> {
-            NewAppointment newAppointment = new NewAppointment(dateOfEvent,
+            NewAppointmentVO newAppointmentVO = new NewAppointmentVO(dateOfEventVO,
                     binding.etClient.getText().toString(),
                     binding.etDescription.getText().toString(),
                     image_type);
             showLoading();
-            viewModel.saveNewAppoitment(newAppointment);
+            viewModel.saveNewAppoitment(newAppointmentVO);
         });
 
         binding.ivMail.setOnClickListener(v -> {
@@ -83,6 +128,13 @@ public class ActivityNewAppointment extends BaseActivity {
             image_type = IMAGE_TYPE.MAPS;
             setImageAppointmentType(R.drawable.circle, R.drawable.circle, R.drawable.circle_red);
         });
+    }
+
+    private void enableNewAppointmentButon() {
+        if (bDate && bClientName && bDescription)
+            binding.btnNew.setEnabled(true);
+        else
+            binding.btnNew.setEnabled(false);
     }
 
     private void setImageAppointmentType(int p, int p2, int p3) {

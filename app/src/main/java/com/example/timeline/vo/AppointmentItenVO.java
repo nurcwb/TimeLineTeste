@@ -3,7 +3,7 @@ package com.example.timeline.vo;
 import com.example.timeline.repository.Appointment;
 import com.example.timeline.util.IMAGE_TYPE;
 
-public class VOAppointmentIten {
+public class AppointmentItenVO {
     private int id;
     private String day;
     private String time;
@@ -11,10 +11,10 @@ public class VOAppointmentIten {
     private String detailsAppointment;
     private String contactName;
 
-    public VOAppointmentIten(Appointment appointment) {
+    public AppointmentItenVO(Appointment appointment) {
         this.id = appointment.getId();
-        this.day = appointment.getDateOfEvent().getDayOfWeek();
-        this.time = appointment.getDateOfEvent().getTimeOfAppointmentAsHour();
+        this.day = appointment.getDateOfEventVO().getDayOfWeek();
+        this.time = appointment.getDateOfEventVO().getTimeOfAppointmentAsHour();
         this.image = appointment.getImage();
         this.detailsAppointment = appointment.getDetails();
         this.contactName = appointment.getClientName();

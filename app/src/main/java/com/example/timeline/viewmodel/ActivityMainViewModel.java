@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.timeline.model.AppointmentModel;
+import com.example.timeline.vo.AppointmentItenVO;
 import com.example.timeline.vo.StatusBarVO;
-import com.example.timeline.vo.VOAppointmentIten;
 
 import java.util.List;
 
@@ -60,7 +60,7 @@ public class ActivityMainViewModel extends ViewModel {
         });
     }
 
-    public List<VOAppointmentIten> getAppointments() {
+    public List<AppointmentItenVO> getAppointments() {
         return model.getAppointments();
     }
 

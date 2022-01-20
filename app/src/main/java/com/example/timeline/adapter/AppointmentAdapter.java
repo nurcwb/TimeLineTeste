@@ -7,15 +7,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.timeline.databinding.LayoutItenTimelineBinding;
-import com.example.timeline.vo.VOAppointmentIten;
+import com.example.timeline.vo.AppointmentItenVO;
 
 import java.util.List;
 
 public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentViewHolder> {
 
-    private final List<VOAppointmentIten> appointmentItens;
+    private final List<AppointmentItenVO> appointmentItens;
 
-    public AppointmentAdapter(List<VOAppointmentIten> appointmentItens) {
+    public AppointmentAdapter(List<AppointmentItenVO> appointmentItens) {
         this.appointmentItens = appointmentItens;
     }
 

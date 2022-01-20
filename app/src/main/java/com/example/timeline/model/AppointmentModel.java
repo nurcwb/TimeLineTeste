@@ -2,9 +2,9 @@ package com.example.timeline.model;
 
 import com.example.timeline.repository.Appointment;
 import com.example.timeline.repository.AppointmentRepository;
-import com.example.timeline.vo.NewAppointment;
+import com.example.timeline.vo.NewAppointmentVO;
 import com.example.timeline.vo.StatusBarVO;
-import com.example.timeline.vo.VOAppointmentIten;
+import com.example.timeline.vo.AppointmentItenVO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,16 +46,16 @@ public class AppointmentModel {
         });
     }
 
-    public List<VOAppointmentIten> getAppointments() {
-        List<VOAppointmentIten> voAppointmentItensList = new ArrayList<>();
+    public List<AppointmentItenVO> getAppointments() {
+        List<AppointmentItenVO> appointmentItensListVO = new ArrayList<>();
         statusBarVO.clean();
         for (Appointment appointment :
                 appointmentList) {
             updadeStatusBarVO(appointment);
-            voAppointmentItensList.add(new VOAppointmentIten(appointment));
+            appointmentItensListVO.add(new AppointmentItenVO(appointment));
 
         }
-        return voAppointmentItensList;
+        return appointmentItensListVO;
     }
 
     private void updadeStatusBarVO(Appointment appointment) {
@@ -72,8 +72,8 @@ public class AppointmentModel {
         }
     }
 
-    public Observable<Boolean> saveAppoitment(NewAppointment newAppointment) {
-        return repository.saveAppoitment(new Appointment(newAppointment));
+    public Observable<Boolean> saveAppoitment(NewAppointmentVO newAppointmentVO) {
+        return repository.saveAppoitment(new Appointment(newAppointmentVO));
     }
 
     public StatusBarVO getStatus() {

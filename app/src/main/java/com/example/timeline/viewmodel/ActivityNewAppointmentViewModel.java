@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.timeline.model.AppointmentModel;
-import com.example.timeline.vo.NewAppointment;
+import com.example.timeline.vo.NewAppointmentVO;
 
 import io.reactivex.observers.DisposableObserver;
 
@@ -16,8 +16,8 @@ public class ActivityNewAppointmentViewModel extends ViewModel {
     public MutableLiveData<String> error = new MutableLiveData<>();
     public MutableLiveData<Boolean> saveNewAppointment = new MutableLiveData<>();
 
-    public void saveNewAppoitment(NewAppointment newAppointment) {
-        model.saveAppoitment(newAppointment).subscribe(new DisposableObserver<Boolean>() {
+    public void saveNewAppoitment(NewAppointmentVO newAppointmentVO) {
+        model.saveAppoitment(newAppointmentVO).subscribe(new DisposableObserver<Boolean>() {
             @Override
             public void onNext(@NonNull Boolean aBoolean) {
                 saveNewAppointment.postValue(aBoolean);

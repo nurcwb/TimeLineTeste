@@ -12,12 +12,12 @@ import androidx.databinding.DataBindingUtil;
 import com.example.timeline.R;
 import com.example.timeline.databinding.ActivityCalendarBinding;
 import com.example.timeline.util.Constans;
-import com.example.timeline.vo.DateOfEvent;
+import com.example.timeline.vo.DateOfEventVO;
 
 public class CalendarActivity extends AppCompatActivity {
 
     private ActivityCalendarBinding binding;
-    private DateOfEvent dateOfEvent;
+    private DateOfEventVO dateOfEventVO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class CalendarActivity extends AppCompatActivity {
         binding.calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
-                dateOfEvent = new DateOfEvent(year, month, day);
+                dateOfEventVO = new DateOfEventVO(year, month, day);
                 binding.tpTime.setEnabled(true);
             }
         });
@@ -40,16 +40,16 @@ public class CalendarActivity extends AppCompatActivity {
             public void onTimeChanged(TimePicker timePicker, int hour, int minuts) {
 
                 if (minuts < 10) {
-                    dateOfEvent.setTimeOfAppointment(hour + ":" + "0" + minuts);
+                    dateOfEventVO.setTimeOfAppointment(hour + ":" + "0" + minuts);
                 } else
-                    dateOfEvent.setTimeOfAppointment(hour + ":" + minuts);
+                    dateOfEventVO.setTimeOfAppointment(hour + ":" + minuts);
                 binding.btnOk.setEnabled(true);
             }
         });
 
         binding.btnOk.setOnClickListener(v -> {
             Intent intent = new Intent();
-            intent.putExtra(Constans.CALENDAR_TIME_APPOINTMENT, dateOfEvent);
+            intent.putExtra(Constans.CALENDAR_TIME_APPOINTMENT, dateOfEventVO);
             setResult(RESULT_OK, intent);
             finish();
         });

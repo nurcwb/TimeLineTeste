@@ -11,7 +11,7 @@ import java.util.List;
 
 @Dao
 public interface AppointmentDAO {
-    @Query("SELECT * FROM Appointment")
+    @Query("SELECT * FROM Appointment ORDER BY month ASC, day ASC, timeOfAppointment ASC")
     List<Appointment> getAllAppointment();
 
     @Query("SELECT * FROM Appointment WHERE week IN(:week) ORDER BY day ASC, timeOfAppointment ASC")

@@ -1,15 +1,11 @@
 package com.example.timeline.adapter;
 
-import android.content.Intent;
-import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.timeline.R;
 import com.example.timeline.databinding.LayoutItenTimelineBinding;
-import com.example.timeline.util.MyApp;
-import com.example.timeline.vo.VOAppointmentIten;
+import com.example.timeline.vo.AppointmentItenVO;
 
 public class AppointmentViewHolder extends RecyclerView.ViewHolder {
 
@@ -20,9 +16,9 @@ public class AppointmentViewHolder extends RecyclerView.ViewHolder {
         this.binding = binding;
     }
 
-    public void setItem(VOAppointmentIten voAppointmentIten) {
-        binding.setData(voAppointmentIten);
-        switch (voAppointmentIten.getImage()) {
+    public void setItem(AppointmentItenVO appointmentItenVO) {
+        binding.setData(appointmentItenVO);
+        switch (appointmentItenVO.getImage()) {
             case 0:
                 binding.ivIten.setImageResource(R.drawable.ic_maps);
                 break;

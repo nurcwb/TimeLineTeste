@@ -46,12 +46,23 @@ public class MainActivity extends BaseActivity {
             resultLauncher.launch(new Intent(this, ActivityNewAppointment.class))
         );
 
+        binding.ivNew.setOnLongClickListener(view -> {
+            updateAllList();
+            return false;
+        });
+
     }
 
     private void updateList() {
         showLoading();
         Calendar calendar = Calendar.getInstance();
         viewModel.requestAppointmentsByWeek(calendar.get(Calendar.WEEK_OF_YEAR));
+    }
+
+    private void updateAllList() {
+        showLoading();
+        Calendar calendar = Calendar.getInstance();
+        viewModel.requestAppointments();
     }
 
     private void showListOfAppointments() {
