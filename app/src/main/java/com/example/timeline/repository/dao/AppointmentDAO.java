@@ -1,4 +1,4 @@
-package com.example.timeline.repository;
+package com.example.timeline.repository.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

@@ -3,6 +3,8 @@ package com.example.timeline.repository;
 import androidx.annotation.NonNull;
 import androidx.room.Room;
 
+import com.example.timeline.repository.dao.Appointment;
+import com.example.timeline.repository.dao.AppointmentDatabase;
 import com.example.timeline.util.MyApp;
 
 import java.util.ArrayList;

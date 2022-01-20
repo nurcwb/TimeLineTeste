@@ -1,4 +1,4 @@
-package com.example.timeline.repository;
+package com.example.timeline.repository.dao;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Embedded;

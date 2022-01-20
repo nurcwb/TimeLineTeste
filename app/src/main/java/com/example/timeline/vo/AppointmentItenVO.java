@@ -1,6 +1,6 @@
 package com.example.timeline.vo;
 
-import com.example.timeline.repository.Appointment;
+import com.example.timeline.repository.dao.Appointment;
 import com.example.timeline.util.IMAGE_TYPE;
 
 public class AppointmentItenVO {
@@ -25,7 +25,7 @@ public class AppointmentItenVO {
     }
 
     public String getDay() {
-        return day.substring(0,3);
+        return day.substring(0, 3);
     }
 
     public String getTime() {

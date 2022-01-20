@@ -1,10 +1,10 @@
 package com.example.timeline.model;
 
-import com.example.timeline.repository.Appointment;
 import com.example.timeline.repository.AppointmentRepository;
+import com.example.timeline.repository.dao.Appointment;
+import com.example.timeline.vo.AppointmentItenVO;
 import com.example.timeline.vo.NewAppointmentVO;
 import com.example.timeline.vo.StatusBarVO;
-import com.example.timeline.vo.AppointmentItenVO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,11 +38,11 @@ public class AppointmentModel {
 
     public Observable<Boolean> requestAppointmentsByWeek(int week) {
         return repository.getAppointmentsByWeek(week).map(appointments -> {
-                if (!appointments.isEmpty()) {
-                    appointmentList = appointments;
-                    return true;
-                } else
-                    return false;
+            if (!appointments.isEmpty()) {
+                appointmentList = appointments;
+                return true;
+            } else
+                return false;
         });
     }
 
