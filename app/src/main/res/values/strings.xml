@@ -9,4 +9,15 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_new_appointment">Escolha a data do compromisso</string>
+    <string name="btn_ok">OK</string>
+    <string name="string_btn_ok">ok</string>
+    <string name="emails">EMAILS</string>
+    <string name="cals">LIGAÇÕES</string>
+    <string name="visits">VISITAS</string>
+    <string name="title_new_task">Nova Tarefa</string>
+    <string name="when">Quando?</string>
+    <string name="client">Cliente</string>
+    <string name="btn_new_appointment">Agendar Tarefa</string>
+    <string name="cancel">Cancelar</string>
 </resources>
